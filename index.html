@@ -48,8 +48,19 @@
   <button id="button">A button element</button>
   <button id="button-icon">An icon-only button</button>
 
+<!-- Draggable -->
+<div id = "draggable" class = "ui-widget-content">
+  <p>Drag</p>
+</div>
 </body>
 <script>
+$( function() {
+  $( "#draggable" ).draggable();
+});
+
+
+
+//premade functions
 
 $( "#accordion" ).accordion();
 
