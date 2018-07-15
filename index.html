@@ -12,13 +12,14 @@ http://qnimate.com/full-screen-scrolling-with-page-piling-effect/
   <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alvarotrigo/pagePiling.js/master/jquery.pagepiling.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
   <script src="jquery-3.3.1.min.js"></script>
   <link href="jquery-ui.css" rel="stylesheet">
   <link href="custom.css" rel="stylesheet">
+  <script src="scripts.js"></script>
   <script src="external/jquery/jquery.js"></script>
   <script src="jquery-ui.js"></script>
   <script src="jquery-ui.min.js"></script>
@@ -35,17 +36,26 @@ http://qnimate.com/full-screen-scrolling-with-page-piling-effect/
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
       </ol>
 
         <div class="carousel-inner" role="listbox">
 
           <div class="carousel-item active">
-
-            <img class="d-block img-fluid" src="images/red.jpg" alt="First slide">
+            <div id="instafeed0"></div>
             <div class="overlay"></div>
           </div>
           <div class="carousel-item">
-            <img class="d-block img-fluid" src="images/blue.jpeg" alt="Second slide">
+            <div id="instafeed1"></div>
+            <div class="overlay"></div>
+          </div>
+          <div class="carousel-item">
+            <div id="instafeed2"></div>
+            <div class="overlay"></div>
+          </div>
+          <div class="carousel-item">
+            <div id="instafeed3"></div>
             <div class="overlay"></div>
           </div>
           <div class="carousel-item">

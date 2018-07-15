@@ -1,24 +1,46 @@
 <!doctype html>
 <html>
     <head>
-        <title>Full Screen Scrolling with Page Piling Effect Demo</title>
+      <meta charset="utf-8">
         <link href="custom.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alvarotrigo/pagePiling.js/master/jquery.pagepiling.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
     </head>
     <body>
-        <div id="pagepiling">
-            <div class="section">Section 1</div>
-            <div class="section">Section 2</div>
-            <div class="section">Section 3</div>
-            <div class="section">Section 4</div>
-        </div>
 
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdn.rawgit.com/alvarotrigo/pagePiling.js/master/jquery.pagepiling.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#pagepiling').pagepiling();
-            });
-        </script>
-    </body>
+      <div class="container">
+        <h2 class="section-head">INSTAGRAM</h2>
+         <div class="inst-grid">
+           <div id="rudr_instafeed"></div> // here will display all images.
+             </div>
+           </div>
+           <script>
+           var token = '3440039563.d56a1b9.358be37d97b942828ee2397726dd3279',
+               user_id = '3440039563',
+               num_photos = 10;
+
+      $.ajax({
+
+      	url: 'https://api.instagram.com/v1/users/self/media/recent/?access_token=3440039563.d56a1b9.358be37d97b942828ee2397726dd3279',
+      	dataType: 'jsonp',
+      	type: 'GET',
+      	data: {access_token: token, count: num_photos},
+      	success: function(data){
+          $("p").append("test");
+       		console.log(data);
+      		for( x in data.data ){
+      			$('div#rudr_instafeed').append('<li><img src="'+data.data[x].images.standard_resolution.url+'"></li>'); // data.data[x].images.low_resolution.url - URL of image, 306х306
+
+      		}
+      	},
+      	error: function(data){
+      		console.log(data);
+          }
+      });
+      </script>
+
+</body>
 </html>
