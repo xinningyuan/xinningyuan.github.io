@@ -1,5 +1,5 @@
 $(document).ready(function() {
-                $('#pagepiling').pagepiling();
+                //$('#pagepiling').pagepiling();
 
                 /*jquery for instagram api*/
 
@@ -17,8 +17,8 @@ $(document).ready(function() {
                $("p").append("test");
             		console.log(data);
            		//for( x in data.data ){
-           			$('div#instafeed0').append('<img class="d-block img-fluid" img src="'+data.data[0].images.standard_resolution.url+'">'); // data.data[x].images.low_resolution.url - URL of image, 306х306
-                $('div#instafeed1').append('<img class="d-block img-fluid" img src="'+data.data[1].images.standard_resolution.url+'">');
+           			$('div#instafeed0').append('<img class="d-block img-fluid" src="'+data.data[0].images.standard_resolution.url+'">'); // data.data[x].images.low_resolution.url - URL of image, 306х306
+                //$('div#instafeed1').append('<img class="d-block img-fluid" img src="'+data.data[1].images.standard_resolution.url+'">');
                 $('div#instafeed2').append('<img class="d-block img-fluid" img src="'+data.data[5].images.standard_resolution.url+'">');
                 $('div#instafeed3').append('<img class="d-block img-fluid" img src="'+data.data[6].images.standard_resolution.url+'">');
            		//}
