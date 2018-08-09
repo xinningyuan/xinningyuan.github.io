@@ -8,7 +8,7 @@
   /* Enable scrolling on the page. */
   overflow-y: scroll;
   /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
-  perspective: 3px;
+  perspective: 2px;
   transform-style: preserve-3d;
 }
 
@@ -16,7 +16,7 @@
   /* Needed for children to be absolutely positioned relative to the parent. */
   position: relative;
   /* The height of the container. Must be set, but it doesn't really matter what the value is. */
-  height: 100vh;
+  height: 120vh;
   width: 100vw;
 
   /* For text formatting. */
@@ -30,10 +30,8 @@
   /* Needed for children to be absolutely positioned relative to the parent. */
   position: relative;
   /* The height of the container. Must be set, but it doesn't really matter what the value is. */
-  height: 35vh;
+  height: 50vh;
   width: 100vw;
-
-
 
   /* For text formatting. */
   display: flex;
@@ -57,7 +55,7 @@
   /* Needed for children to be absolutely positioned relative to the parent. */
   position: relative;
   /* The height of the container. Must be set, but it doesn't really matter what the value is. */
-  height: 80vh;
+  height: 85vh;
   width: 100vw;
 
   /* For text formatting. */
@@ -78,7 +76,7 @@
   /* Move the pseudo-element back away from the camera,
    * then scale it back up to fill the viewport.
    * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
-  transform: translateZ(-1px) scale(1.7);
+  transform: translateZ(-1px) scale(2);
   /* Force the background image to fill the whole element. */
   background-size: 100%;
 
@@ -94,17 +92,31 @@
 /* Sets the actual background images to adorable kitties. This part is crucial. */
 .bg1::after {
   background-image: url('images/mermay2018.png');
+  width:100vw;
 }
 
 .bg2::after {
   background-image: url('images/swallow.png');
+  width:100vw;
 }
 
 .bg3::after {
   background-image: url('images/OneWithEarth.png');
+  width:100vw;
 }
 
-
+.text_appear {
+  opacity:0;
+  font-size: 50px;
+  z-index:1;
+  color: white;
+  transition:  opacity 1s ease,
+                width 0.5s ease,
+                left 0.5s ease;
+}
+.bg1:hover .text_appear{
+  opacity:1;
+}
 
 .carousel-container {
   width: 100vw;
