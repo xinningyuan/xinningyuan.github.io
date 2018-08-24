@@ -13,6 +13,8 @@ https://alligator.io/css/pure-css-parallax/
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alvarotrigo/pagePiling.js/master/jquery.pagepiling.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -27,21 +29,38 @@ https://alligator.io/css/pure-css-parallax/
   <script src="jquery-ui.min.js"></script>
 </head>
 <body>
+<div class="nav-item dropdown">
+        <button class="nav-link navbutton" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-bars fa-lg"></i></button>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#top">To the top</a>
+          <a class="dropdown-item" href="#aboutme">About Me</a>
+          <a class="dropdown-item" href="#technical">Technical Projects</a>
+          <a class="dropdown-item" href="#illustrations">Illustrations</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Contact Me</a>
+          <a class="dropdown-item" href="#">Sources</a>
+        </div>
+      </div>
   <main class="wrapper">
-  <section class="full_section parallax bg1">
+  <section class="full_section parallax bg1" id="top">
     <div class="text_appear">C I N D Y</div>
   </section>
-  <section class="title_section static">
-    <h1>I N T R O</h1>
+  <section class="title_section static" id="aboutme">
+    <center><h3>My name is Cindy</h3>
+    Currently studying computer engineering at UBC
+    Interests in</center>
   </section>
-  <section class="title_bg_section parallax bg3">
-    <h1>T I T L E</h1>
+  <section class="title_bg_section parallax bg3" id="technical">
+    <center><h1 style="color:white">T E C H N I C A L<br>P R O J E C T S</h1></center>
   </section>
-  <section class="title_section static">
-    <h1>I N T R O</h1>
+
+  <section class="display_section static" style="background:#111111;">
   </section>
-  <section class="title_bg_section parallax bg3">
-    <h1>T I T L E</h1>
+
+  <section class="title_bg_section parallax bg3" id="illustrations">
+    <h1 style="color:white">I L L U S T R A T I O N</h1>
   </section>
 
   <section class="display_section static" style="background:#111111;">
@@ -70,9 +89,6 @@ https://alligator.io/css/pure-css-parallax/
           <div class="carousel-item">
             <div id="instafeed3"></div>
           </div>
-          <div class="carousel-item">
-            <img class="d-block img-fluid" src="images/purple.jpg" alt="Third slide">
-          </div>
 
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -87,7 +103,7 @@ https://alligator.io/css/pure-css-parallax/
     </div>
   </section>
   <section class="full_section parallax bg2">
-    <h1>SO FWUFFY AWWW</hi>
+    <h1>Hello :)</hi>
   </section>
 </main>
 </body>
