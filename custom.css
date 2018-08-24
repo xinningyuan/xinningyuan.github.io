@@ -1,3 +1,33 @@
+.navbutton {
+  position: fixed;
+  top: 20px;
+  left: 30px;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  border-radius: 55px;
+  text-align: center;
+  color: #777777;
+  background-color: white;
+  border-width: 0px;
+  transition: background-color 0.3s ease,
+              color 0.3s ease;
+}
+.navbutton:hover {
+  background-color: #333333;
+  color: #dddddd;
+}
+.dropdown-menu {
+  transform: translate(110px, 20px);
+}
+.btn-primary {
+  text-align: center;
+}
+.nav-link {
+  background-color: #eeeeee;
+  border-color: #777777
+}
+
 .wrapper {
   /* The height needs to be set to a fixed value for the effect to work.
    * 100vh is the full height of the viewport. */
