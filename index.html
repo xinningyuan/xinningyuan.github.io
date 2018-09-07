@@ -29,12 +29,14 @@ https://alligator.io/css/pure-css-parallax/
   <script src="jquery-ui.min.js"></script>
 </head>
 <body>
-<div class="nav-item dropdown">
-        <button class="nav-link navbutton" href="#" id="test_button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-         onclick="toggleFunction()">
+<div class="dropdown">
+        <!--<button class="nav-link navbutton" href="#" id="test_button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+         onclick="toggleFunction()">-->
+        <button class="navbutton" href="#" id="test_button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+         >
         <i class="fas fa-bars fa-lg"></i></button>
 
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu" id="nav_dropdown" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#top">To the top</a>
           <a class="dropdown-item" href="#aboutme">About Me</a>
           <a class="dropdown-item" href="#technical">Technical Projects</a>
@@ -49,6 +51,7 @@ https://alligator.io/css/pure-css-parallax/
     <div class="text_appear">C I N D Y</div>
   </section>
   <section class="title_section static" id="aboutme">
+    <br><br>
     <center><h3>My name is Cindy</h3><br>
     <li>Currently in my third year studying computer engineering at UBC</li><br>
     <li>Proficient in programming languages such as Java, C/C++, C#, HTML, CSS</li><br>
@@ -61,6 +64,7 @@ https://alligator.io/css/pure-css-parallax/
     </a>
     <button class="btn btn-secondary" id="test_button" onclick="toggleFunction()">test</button>
   </center>
+  <br><br>
   </section>
   <section class="title_bg_section parallax bg3" id="technical">
     <center><h1 style="color:white">T E C H N I C A L<br>P R O J E C T S</h1></center>

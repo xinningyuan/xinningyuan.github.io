@@ -69,9 +69,10 @@
   width: 100vw;
 
   /* For text formatting. */
-  display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y:auto;
+
 }
 .title_bg_section {
   /* Needed for children to be absolutely positioned relative to the parent. */
@@ -92,7 +93,7 @@
   /* The height of the container. Must be set, but it doesn't really matter what the value is. */
   height: 85vh;
   width: 100vw;
-
+  overflow:scroll;
   /* For text formatting. */
   display: flex;
   align-items: center;

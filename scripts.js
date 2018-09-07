@@ -1,6 +1,7 @@
 $(document).ready(function() {
                 //$('#pagepiling').pagepiling();
-
+                //toggleable nav button
+                var toggle_button = document.getElementById('test_button');
                 /*jquery for instagram api*/
                 var token = '3440039563.d56a1b9.358be37d97b942828ee2397726dd3279',
                     user_id = '3440039563',
@@ -27,7 +28,22 @@ $(document).ready(function() {
                }
            });
 
-            });
+
+  });
+  $(document).on('click', function() {
+    console.log(2);
+    $(".dropdown").on('shown.bs.dropdown', function(){
+      alert('The dropdown is now fully shown.');
+    });
+    $(".dropdown").on('hidden.bs.dropdown', function(){
+      alert('The dropdown is now fully hidden.');
+    });
+  });
+
+  $(document).onclick(function(){
+    dropdownToggleFunction();
+    console.log("checking click");
+   })
 
 function toggleFunction(){
   var toggle_button = document.getElementById('test_button');
@@ -35,6 +51,13 @@ function toggleFunction(){
   console.log(toggle_button.outerHTML);
 }
 
+/*function dropdownToggleFunction(){
+  var toggle_button = document.getElementById('test_button');
+  if (document.getElementById('nav_dropdown').isActive()) {
+    toggle_button.classList.add("toggle_pressed");
+  }
+  toggle_button.classList.remove("toggle_pressed");
+}*/
 
 $( function() {
   $( ".draggable" ).draggable({
