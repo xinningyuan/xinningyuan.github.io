@@ -2,7 +2,6 @@ $(document).ready(function() {
                 //$('#pagepiling').pagepiling();
 
                 /*jquery for instagram api*/
-
                 var token = '3440039563.d56a1b9.358be37d97b942828ee2397726dd3279',
                     user_id = '3440039563',
                     num_photos = 10;
@@ -30,7 +29,11 @@ $(document).ready(function() {
 
             });
 
-
+function toggleFunction(){
+  var toggle_button = document.getElementById('test_button');
+  toggle_button.classList.toggle("toggle_pressed");
+  console.log(toggle_button.outerHTML);
+}
 
 
 $( function() {
