@@ -28,22 +28,37 @@ $(document).ready(function() {
                }
            });
 
-
   });
+$( function() {
+  $("#dropdownbtn").on('show.bs.dropdown', function() {
+    document.getElementById('toggled_button').classList.add("toggle_pressed");
+  });
+});
+
+$( function() {
+  $("#dropdownbtn").on('hide.bs.dropdown', function() {
+    document.getElementById('toggled_button').classList.remove("toggle_pressed");
+  });
+});
+
+$( function() {
+  $("#testbutton").on('click', function() {
+    alert('works');
+  });
+});
+
   $(document).on('click', function() {
     console.log(2);
-    $(".dropdown").on('shown.bs.dropdown', function(){
-      alert('The dropdown is now fully shown.');
-    });
-    $(".dropdown").on('hidden.bs.dropdown', function(){
-      alert('The dropdown is now fully hidden.');
-    });
   });
 
-  $(document).onclick(function(){
-    dropdownToggleFunction();
-    console.log("checking click");
-   })
+  /*$("#myDropdown").on('show.bs.dropdown', function(){
+    console.log("dropdown showing");
+    alert('The dropdown is now fully shown.');
+  });
+  $("#myDropdown").on('hide.bs.dropdown', function(){
+    console.log("dropdown hiding");
+    alert('The dropdown is now fully hidden.');
+  });*/
 
 function toggleFunction(){
   var toggle_button = document.getElementById('test_button');
@@ -68,7 +83,7 @@ $( function() {
 
 //premade functions
 
-$( "#accordion" ).accordion();
+//$( "#accordion" ).accordion();
 
 
 

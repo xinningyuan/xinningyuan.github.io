@@ -1,27 +1,26 @@
 .navbutton {
   position: fixed;
-  top: 20px;
+  top: 30px;
   left: 30px;
   z-index: 1;
   width: 60px;
   height: 60px;
   border-radius: 55px;
   text-align: center;
-  /*color: #777777;*/
-  background-color: #333333;
+  color: #333333;
+  background-color: #dddddd;
   overflow:auto;
   border-width: 0px;
   transition: color 0.3s ease;
 }
-/*.navbutton:hover {
-  background-color: #333333;
-}*/
+.btn-group {
+  position: absolute;
+}
 .toggle_pressed {
-  color: white;
+  color: #dddddd;
   background-color: #333333;
   overflow:auto;
 }
-
 .dropdown-menu {
   transform: translate(110px, 20px);
 }
@@ -93,7 +92,7 @@
   /* The height of the container. Must be set, but it doesn't really matter what the value is. */
   height: 85vh;
   width: 100vw;
-  overflow:scroll;
+  overflow-y: scroll;
   /* For text formatting. */
   display: flex;
   align-items: center;
@@ -132,7 +131,7 @@
 }
 
 .bg2::after {
-  background-image: url('images/swallow.png');
+  background-image: url('images/Swallow.png');
   width:100vw;
 }
 
@@ -141,6 +140,9 @@
   width:100vw;
 }
 
+.bg4::after {
+  background-image: url('images/StarGoddess.jpg')
+}
 .text_appear {
   opacity:0;
   font-size: 50px;
