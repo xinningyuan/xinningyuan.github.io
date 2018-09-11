@@ -8,15 +8,34 @@
   perspective: 2px;
 }
 /*section sizes same as full-title-section... etc*/
-.section{
+.full_section, .title_section, .display_section{
   position: relative;
-  height: 100vh;
   transform-style: preserve-3d;
 }
-.small_section{
-  position:relative;
-  height:50vh;
-  transform-style: preserve-3d;
+.full_section{
+  height: 100vh;
+}
+.title_section{
+  height: 50vh;
+}
+
+
+.full_layer, .title_layer, .display_layer {
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.full_layer, .full_section{
+  height: 100vh;
+}
+
+.title_layer, .title_section{
+  height: 50vh;
+}
+
+.display_layer, .display_section{
+  height: 85vh;
 }
 
 .layer {
@@ -38,23 +57,6 @@
 
 .layer_base_bg {
   transform: translateZ(-1px) scale(2);
-}
-
-.full_title_section {
-  height: 120vh;
-  width: 100vw;
-}
-
-.title_section {
-  height: 50vh;
-  width: 100vw;
-}
-
-.display_section {
-  height: 85vh;
-  width: 100vw;
-
-  overflow-y: scroll;
 }
 
 .title {
