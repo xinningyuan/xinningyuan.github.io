@@ -1,162 +1,170 @@
-.navbutton {
-  position: fixed;
-  top: 30px;
-  left: 30px;
-  z-index: 1;
-  width: 60px;
-  height: 60px;
-  border-radius: 55px;
-  text-align: center;
-  color: #333333;
-  background-color: #dddddd;
-  overflow:auto;
-  border-width: 0px;
-  transition: color 0.3s ease;
-}
-.btn-group {
-  position: absolute;
-}
-.toggle_pressed {
-  color: #dddddd;
-  background-color: #333333;
-  overflow:auto;
-}
-.dropdown-menu {
-  transform: translate(110px, 20px);
-}
-.btn-primary {
-  text-align: center;
-}
-.nav-link {
-  background-color: #eeeeee;
-  border-color: #777777
+/*Style for github button to maintain width when text on button is changed*/
+#github_button{
+  width: 140px;
 }
 
-.wrapper {
-  /* The height needs to be set to a fixed value for the effect to work.
-   * 100vh is the full height of the viewport. */
-  height: 100vh;
-  width: 100vw;
-  /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
-  overflow-x: hidden;
-  /* Enable scrolling on the page. */
-  overflow-y: scroll;
-  /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
-  perspective: 2px;
-  transform-style: preserve-3d;
-}
-
-.full_section {
-  /* Needed for children to be absolutely positioned relative to the parent. */
-  position: relative;
-  /* The height of the container. Must be set, but it doesn't really matter what the value is. */
-  height: 120vh;
-  width: 100vw;
-
-  /* For text formatting. */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /*color: white;
-  text-shadow: 0 0 5px #000;*/
-}
-.title_section {
-  /* Needed for children to be absolutely positioned relative to the parent. */
-  position: relative;
-  /* The height of the container. Must be set, but it doesn't really matter what the value is. */
-  height: 50vh;
-  width: 100vw;
-
-  /* For text formatting. */
-  align-items: center;
-  justify-content: center;
-  overflow-y:auto;
-
-}
-.title_bg_section {
-  /* Needed for children to be absolutely positioned relative to the parent. */
-  position: relative;
-  /* The height of the container. Must be set, but it doesn't really matter what the value is. */
-  height: 50vh;
-  width: 100vw;
-
-  /* For text formatting. */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.display_section {
-  /* Needed for children to be absolutely positioned relative to the parent. */
-  position: relative;
-  /* The height of the container. Must be set, but it doesn't really matter what the value is. */
-  height: 85vh;
-  width: 100vw;
-  overflow-y: scroll;
-  /* For text formatting. */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.parallax::after {
-  /* Display and position the pseudo-element */
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  /* Move the pseudo-element back away from the camera,
-   * then scale it back up to fill the viewport.
-   * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
-  -webkit-transform: translateZ(-1px) scale(2);
-  transform: translateZ(-1px) scale(2);
-  /* Force the background image to fill the whole element. */
-  background-size: 100%;
-
-  /* Keep the image from overlapping sibling elements. */
-  z-index: -1;
-}
-
-/* The styling for the static div. */
-.static {
-  background: white;
-}
-
-/* Set background images */
-.bg1::after {
-  background-image: url('images/mermay2018.png');
-  width:100vw;
-}
-
-.bg2::after {
-  background-image: url('images/Swallow.png');
-  width:100vw;
-}
-
-.bg3::after {
-  background-image: url('images/OneWithEarth.png');
-  width:100vw;
-}
-
-.bg4::after {
-  background-image: url('images/StarGoddess.jpg')
-}
+/*Styles for appearing text when hovered over*/
 .text_appear {
   opacity:0;
   font-size: 50px;
-  z-index:1;
+  z-index:10;
   color: white;
   transition:  opacity 1s ease,
                 width 0.5s ease,
                 left 0.5s ease;
 }
-.bg1:hover .text_appear{
+#top:hover .text_appear{
+  opacity:1;
+}
+#illustrations:hover .text_appear{
   opacity:1;
 }
 
+/*added css class to allow navbutton to stay on top/sticky */
+.btn-page-container{
+  position:relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+/*Styles for navigation button*/
+.navbutton {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 10;
+  width: 60px;
+  height: 60px;
+  border-radius: 55px;
+  text-align: center;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  background:none;
+  border-width: 0px;
+  transition: color 0.3s ease;
+}
+.btn-primary {
+  text-align: center;
+}
+
+/*Styles for navigation button when pressed/triggered*/
+.toggle_pressed {
+  color: #eeeeee;
+  background-color: #333333;
+  overflow: auto;
+}
+
+/*Changing colors for navigation menu links*/
+.nav-link {
+  background-color: #eeeeee;
+  border-color: #777777
+}
+
+/*Overall wrapper for Parallax page*/
+.parallax_body{
+  height: 100vh;
+  width: 100vw;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  perspective: 2px;
+}
+
+/*Styles defining sections; preserve 3d to create parallax effect*/
+.full_section, .title_section, .display_section{
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/*Styles defining layers to be 100% width; scrollable in y direction; and centered content*/
+.full_layer, .title_layer, .display_layer {
+  width: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.full_layer, .full_section{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title_layer, .title_section{
+  height: 50vh;
+}
+
+.display_layer, .display_section{
+  height: 85vh;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Defining a layer - can be foreground or background
+  Set margins and paddings to 0 and background size to fit container*/
+.layer {
+  position: absolute;
+  content:"";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-size:100%;
+}
+
+/*Styles for defining depth between layers for parallax effect
+  Currently 2 layers are used - foreground and background*/
+.layer_base {
+  transform: translateZ(0);
+}
+.layer_base_bg {
+  transform: translateZ(-1px) scale(2);
+}
+
+/*Style for formatting section titles in front of parallax backgrounds*/
+.title {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(20vh);
+  /*2px black border*/
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+/*Setting parallax background images and width*/
+.bg1 {
+  background-image: url('images/mermay2018.png');
+  width: 100vw;
+}
+.bg2 {
+  background-image: url('images/OneWithEarth.png');
+  width: 100vw;
+}
+.bg3 {
+  background-image: url('images/StarGoddess.jpg');
+  width:100vw;
+}
+.bg4 {
+  background-image: url('images/Swallow.png');
+  width:100vw;
+}
+
+/*Differentiating between background sections and foreground sections in parallax*/
+.section_back {
+  z-index:-1;
+}
+.section_top {
+  z-index:1;
+}
+
+
+/* Carousel styles
+  Styles for formatting Carousel container*/
 .carousel-container {
   width: 100vw;
   height: 80vh;
@@ -166,6 +174,8 @@
   background-color:#111111;
   margin:auto;
 }
+/*Styles for formatting each carousel item
+  Set height to be within *display_section**/
 .carousel-inner .carousel-item {
   height: 80vh;
   width:100vw;
@@ -173,6 +183,36 @@
   position:relative;
 }
 
+/* Styles for formatting Instagram Photos
+  Set height to be within *carousel-item**/
+.img-fluid {
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin:auto;
+  align-content:center;
+  max-height:80vh;
+  height:auto;
+  width:auto;
+}
+
+/* Styles for formatting Instagram Photos*/
+#instafeed {
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin:auto;
+  align-content:center;
+  max-height:inherit;
+  height:auto;
+  width:auto;
+}
+
+/*currently unused*/
 .overlay {
   position:absolute;
   left:100vw;
@@ -189,41 +229,4 @@
   transition: opacity 0.5s ease,
               width 0.5s ease,
               left 0.5s ease;
-}
-
-.img-fluid {
-  position:absolute;
-  left:0;
-  right:0;
-  top:0;
-  bottom:0;
-  margin:auto;
-  align-content:center;
-  max-height:80vh;
-  height:auto;
-  width:auto;
-}
-#instafeed {
-  position:absolute;
-  left:0;
-  right:0;
-  top:0;
-  bottom:0;
-  margin:auto;
-  align-content:center;
-  max-height:inherit;
-  height:auto;
-  width:auto;
-}
-
-.carousel-item:hover .overlay{
-  opacity:0.5;
-  width:30%;
-  left:60%;
-
-}
-
-.draggable {
-  height: 150px;
-  width: 250px;
 }

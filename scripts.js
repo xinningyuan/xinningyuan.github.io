@@ -1,79 +1,95 @@
 $(document).ready(function() {
-                //$('#pagepiling').pagepiling();
-                //toggleable nav button
-                var toggle_button = document.getElementById('test_button');
-                /*jquery for instagram api*/
+
+                //jquery for instagram api
+                //set up variables for instagram account
                 var token = '3440039563.d56a1b9.358be37d97b942828ee2397726dd3279',
                     user_id = '3440039563',
                     num_photos = 10;
 
+          //ajax to get images from instagram
            $.ajax({
-
            	url: 'https://api.instagram.com/v1/users/self/media/recent/?access_token=3440039563.d56a1b9.358be37d97b942828ee2397726dd3279',
            	dataType: 'jsonp',
            	type: 'GET',
            	data: {access_token: token, count: num_photos},
+
+            //upload pictures acquired from instagram to specific tags in HTML
            	success: function(data){
-               $("p").append("test");
-            		console.log(data);
-           		//for( x in data.data ){
-           			$('div#instafeed0').append('<img class="d-block img-fluid" src="'+data.data[0].images.standard_resolution.url+'">'); // data.data[x].images.low_resolution.url - URL of image, 306х306
-                //$('div#instafeed1').append('<img class="d-block img-fluid" img src="'+data.data[1].images.standard_resolution.url+'">');
-                $('div#instafeed2').append('<img class="d-block img-fluid" img src="'+data.data[5].images.standard_resolution.url+'">');
-                $('div#instafeed3').append('<img class="d-block img-fluid" img src="'+data.data[6].images.standard_resolution.url+'">');
-           		//}
+              $('div#instalinktest').append('<a href="'+data.data[0].link+'">test</button>');
+           		$('div#instafeed0').append('<img class="d-block img-fluid" src="'+data.data[0].images.standard_resolution.url+'">');
+              $('div#instafeed1').append('<img class="d-block img-fluid" img src="'+data.data[1].images.standard_resolution.url+'">');
+              $('div#instafeed2').append('<img class="d-block img-fluid" img src="'+data.data[2].images.standard_resolution.url+'">');
+              $('div#instafeed3').append('<img class="d-block img-fluid" img src="'+data.data[3].images.standard_resolution.url+'">');
+              $('div#instafeed4').append('<img class="d-block img-fluid" img src="'+data.data[4].images.standard_resolution.url+'">');
            	},
+
+            //catch and handle errors
            	error: function(data){
            		console.log(data);
                }
            });
-
   });
+
+/*
+ * Function to change style of navigation button when menu is showing
+ * Function uses bootstrap drop down menu
+ * Change *toggle_pressed* class in css to change style of button when toggled
+ */
 $( function() {
   $("#dropdownbtn").on('show.bs.dropdown', function() {
     document.getElementById('toggled_button').classList.add("toggle_pressed");
   });
 });
 
+/*
+ * Function to change style of navigation button back to original when menu is closed
+ * Function uses bootstrap drop down menu
+ */
 $( function() {
   $("#dropdownbtn").on('hide.bs.dropdown', function() {
     document.getElementById('toggled_button').classList.remove("toggle_pressed");
   });
 });
 
-$( function() {
-  $("#testbutton").on('click', function() {
-    alert('works');
-  });
-});
-
+//testing click function; REMOVE LATER
   $(document).on('click', function() {
     console.log(2);
   });
 
-  /*$("#myDropdown").on('show.bs.dropdown', function(){
-    console.log("dropdown showing");
-    alert('The dropdown is now fully shown.');
-  });
-  $("#myDropdown").on('hide.bs.dropdown', function(){
-    console.log("dropdown hiding");
-    alert('The dropdown is now fully hidden.');
-  });*/
+/*
+ * Function for mousing over github button.
+ * Changes from *current_innerHTML* to github logo. Github logo can be changed by altering *new_innerHTML*
+ * Function is currently called within HTML
+ */
+function githubMouseOver(){
+  var button_message = document.getElementById("github_button")
+  var current_innerHTML = button_message.innerHTML;
+  var new_innerHTML = '<i class="fab fa-github"></i>';
 
-function toggleFunction(){
-  var toggle_button = document.getElementById('test_button');
-  toggle_button.classList.toggle("toggle_pressed");
-  console.log(toggle_button.outerHTML);
+  //object should not be null
+  if (button_message != null){
+    button_message.innerHTML = document.getElementById("github_button").innerHTML.replace(current_innerHTML, new_innerHTML);
+  }
 }
 
-/*function dropdownToggleFunction(){
-  var toggle_button = document.getElementById('test_button');
-  if (document.getElementById('nav_dropdown').isActive()) {
-    toggle_button.classList.add("toggle_pressed");
-  }
-  toggle_button.classList.remove("toggle_pressed");
-}*/
+/*
+ * Function for mousing out of github button.
+ * Changes from *current_innerHTML* to text. Text can be changed by altering *new_innerHTML*
+ * Function is currently called within HTML
+ */
+function githubMouseOut(){
+  var button_message = document.getElementById("github_button")
+  var current_innerHTML = button_message.innerHTML;
+  var new_innerHTML = 'See my Github';
 
+  //object should not be null
+  if (button_message != null){
+    button_message.innerHTML = document.getElementById("github_button").innerHTML.replace(current_innerHTML, new_innerHTML);
+  }
+}
+
+//additional unused functions from source
+/*
 $( function() {
   $( ".draggable" ).draggable({
     //axis:"x" //move along horizontally
@@ -207,3 +223,4 @@ $( "#dialog-link, #icons li" ).hover(
 		$( this ).removeClass( "ui-state-hover" );
 	}
 );
+*/
