@@ -75,6 +75,9 @@
 .full_section, .title_section, .display_section{
   position: relative;
   transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*Styles defining layers to be 100% width; scrollable in y direction; and centered content*/
@@ -82,27 +85,21 @@
   width: 100vw;
   overflow-y: auto;
   overflow-x: hidden;
-
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .full_layer, .full_section{
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .title_layer, .title_section{
-  height: 50vh;
+  height: 60vh;
 }
 
 .display_layer, .display_section{
   height: 85vh;
-  display:flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /*Defining a layer - can be foreground or background
@@ -131,7 +128,6 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  transform: translateY(20vh);
   /*2px black border*/
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
@@ -181,6 +177,32 @@
   width:100vw;
   margin:auto;
   position:relative;
+}
+
+.img-overlay {
+  position:absolute;
+  top:0;
+  transform:translateX(50vw);
+  background-color:rgba(255,255,255,0);
+
+  height: 30px;
+  width: auto;
+  justify-content: center;
+}
+
+.img-overlay-button{
+  opacity:0;
+  color: black;
+  float:left;
+  padding: 5px;
+}
+
+.carousel-item:hover .img-overlay{
+  background-color:rgba(255,255,255,0.5);
+}
+
+.carousel-item:hover .img-overlay-button{
+  opacity:1;
 }
 
 /* Styles for formatting Instagram Photos

@@ -14,8 +14,9 @@ $(document).ready(function() {
            	data: {access_token: token, count: num_photos},
 
             //upload pictures acquired from instagram to specific tags in HTML
+            //<a href="https://puffypants.artstation.com/" target="_blank">
            	success: function(data){
-              $('div#instalinktest').append('<a href="'+data.data[0].link+'">test</button>');
+              $('div#instalinktest').append('<a href="'+data.data[0].link+'" target="_blank"><i class="fab fa-instagram fa-lg img-overlay-button"></i></a>');
            		$('div#instafeed0').append('<img class="d-block img-fluid" src="'+data.data[0].images.standard_resolution.url+'">');
               $('div#instafeed1').append('<img class="d-block img-fluid" img src="'+data.data[1].images.standard_resolution.url+'">');
               $('div#instafeed2').append('<img class="d-block img-fluid" img src="'+data.data[2].images.standard_resolution.url+'">');
