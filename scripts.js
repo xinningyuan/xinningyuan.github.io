@@ -58,12 +58,47 @@ $( function() {
   });
 
 /*
+ * Function to slide display section to show display text (currently specifically for technical projects section)
+ * Parameters: *this* element - btn and String ID of corresponding text section
+ * toggles and untoggles upon click
+ */
+function displaySlideButtonPress(btn, text_section_id){
+  console.log("button pressed!");
+  console.log(btn.innerHTML);
+  console.log(text_section_id);
+  var text_section_element = document.getElementById(text_section_id);
+  var parent_element = btn.parentElement;
+  var button_HTML_slided = '<i class="fas fa-angle-right fa-lg"></i>';
+  var button_HTML_unslided = '<i class="fas fa-angle-left fa-lg"></i>';
+
+  parent_element.classList.toggle("display_section_img_slided");
+  text_section_element.classList.toggle("display_section_img_text_slided");
+
+  /*if toggled/slided; then remove toggle/slided class and change side of arrow*/
+  if (parent_element.classList.contains("display_section_img_slided") || text_section_element.classList.contains("display_section_img_text_slided")) {
+    //swapped to toggle; remove later
+    //parent_element.classList.remove("display_section_img_slided");
+    //text_section_element.classList.remove("display_section_img_text_slided");
+    //btn.innerHTML = button_HTML_unslided;
+    btn.innerHTML = button_HTML_slided;
+  }
+  /*if not toggled/slided; then add toggle/slided class and change side of arrow*/
+  else {
+    //swapped to toggle; remove later
+    //parent_element.classList.add("display_section_img_slided");
+    //text_section_element.classList.add("display_section_img_text_slided");
+    //btn.innerHTML = button_HTML_slided;
+    btn.innerHTML = button_HTML_unslided;
+  }
+}
+
+/*
  * Function for mousing over github button.
  * Changes from *current_innerHTML* to github logo. Github logo can be changed by altering *new_innerHTML*
  * Function is currently called within HTML
  */
 function githubMouseOver(){
-  var button_message = document.getElementById("github_button")
+  var button_message = document.getElementById("github_button");
   var current_innerHTML = button_message.innerHTML;
   var new_innerHTML = '<i class="fab fa-github"></i>';
 
@@ -88,6 +123,7 @@ function githubMouseOut(){
     button_message.innerHTML = document.getElementById("github_button").innerHTML.replace(current_innerHTML, new_innerHTML);
   }
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////

@@ -60,6 +60,60 @@
   border-color: #777777
 }
 
+/*styles for display layer images and text*/
+.display_section_img {
+  position:relative;
+  float:left;
+  height: 70vh;
+  width: 80vw;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
+  /*right aligns child classes and centers vertically*/
+  display:flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  transition: width 0.5s ease;
+}
+.display_section_img_text {
+  float:left;
+  height: 70vh;
+  width: 0vw;
+  opacity:0;
+  padding:15px;
+  overflow-y:scroll;
+  background-color: #333333;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transition: width 0.5s ease,
+              opacity 0.5s ease;
+}
+.display_slide_button {
+  width:30px;
+  height:50px;
+  border-radius: 15px 0px 0px 15px;
+  background-color:black;
+  color:white;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/*#technical_proj_1:hover .display_section_img {*/
+.display_section_img_slided {
+  width: 50vw;
+}
+/*#technical_proj_1:hover .display_section_img_text {*/
+.display_section_img_text_slided {
+  width: 35vw;
+  opacity:1;
+}
+
 /*Overall wrapper for Parallax page*/
 .parallax_body{
   height: 100vh;

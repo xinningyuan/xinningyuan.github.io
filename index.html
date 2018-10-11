@@ -7,6 +7,7 @@ http://qnimate.com/full-screen-scrolling-with-page-piling-effect/
 https://alligator.io/css/pure-css-parallax/
 https://keithclark.co.uk/articles/pure-css-parallax-websites/
 https://stackoverflow.com/questions/42206499/instagram-api-return-post-link
+https://stackoverflow.com/questions/22119673/find-the-closest-ancestor-element-that-has-a-specific-class
 -->
 <html>
 <head>
@@ -92,12 +93,30 @@ https://stackoverflow.com/questions/42206499/instagram-api-return-post-link
 
       <!-- technical projects display section -->
       <div class="section display_section" style="background:#111111;" id="top_group">
-        <div class="layer layer_base display_layer">
+        <div class="layer layer_base display_layer" id="technical_proj_1" style="overflow-y:hidden;">
           <center>
+            <div class="display_section_img" style="background-image:url(images/Project2Front.jpg);">
+              <div class="display_slide_button" id="slide_button" role="button" onclick="displaySlideButtonPress(this, 'text_section_proj1')">
+                <i class="fas fa-angle-left fa-lg"></i>
+              </div>
+            </div>
+            <div class="display_section_img_text" style="color:white;" id="text_section_proj1">
+              The visitor management system is started up by a motion sensor that senses someone approaching. Once the system is on, the user can then interact with the system by waving at the Leap Motion sensor, which then allows the system to enter the Home Doorbell mode. The system is composed of a motion sensor, a Leap Motion sensor, a Raspberry Pi camera, an Android device running our app, a photocell, a LED, a speaker, a temperature sensor, and a bump switch.<br><br>
+              The Home Doorbell mode allows the visitor management system to act as a “smart doorbell.” After the Leap Motion detects the user’s wave motion, the system will ring the doorbell, which is implemented as a speaker. If the homeowner is not home, the user can type a message on the screen, which is texted to the homeowner. The homeowner can view the messages, the camera footage from interactions, the current temperature, and a current photo. A photocell will detect the light level, and if the area around the system is too dark, it will shine a light so the camera footage is still useful.<br><br>
+              In Office Greeting mode, the visitor management system acts as a scheduling system for an office. When a user arrives, they will be able to select the person that they are coming to meet in the office, and enter a purpose. After sending the message, the specified office worker will be notified via text that the client has arrived, along with all of the relevant information entered. This information will also be available under archive on the website After the project had some time to evolve, Office Greeting mode was cut from the final product due to time constraints. We instead chose to perfect Home Doorbell mode as much as possible, but the app and most of the hardware for the Office Greeting mode is completed.
+              <br><hr>
+              <a href="https://docs.google.com/document/d/1JKXX31ExS8mC44feFCdD9k6TUPxXendPRUPk3Y2qD1g/edit?usp=sharing" target="_blank">
+                <button class="btn btn-secondary">
+                  Autonomous Multi-Function Robot (doc ver)
+                </button>
+              </a>
+            </div>
+
+
+            <!--
             <h3 style ="color:white">
               Placeholder for technical projects
             </h3>
-
             <a href="https://docs.google.com/document/d/1JKXX31ExS8mC44feFCdD9k6TUPxXendPRUPk3Y2qD1g/edit?usp=sharing" target="_blank">
               <button class="btn btn-secondary">
                 Autonomous Multi-Function Robot (doc ver)
@@ -108,7 +127,7 @@ https://stackoverflow.com/questions/42206499/instagram-api-return-post-link
               <button class="btn btn-secondary">
                 Home Visitor Management System (doc ver)
               </button>
-            </a>
+            </a>-->
           </center>
         </div>
       </div>
