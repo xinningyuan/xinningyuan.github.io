@@ -8,20 +8,23 @@ $(document).ready(function() {
 
           //ajax to get images from instagram
            $.ajax({
-           	url: 'https://api.instagram.com/v1/users/self/media/recent/?access_token=3440039563.d56a1b9.358be37d97b942828ee2397726dd3279',
+             //url: 'https://api.instagram.com/v1/users/self/media/recent/?access_token=3440039563.d56a1b9.358be37d97b942828ee2397726dd3279',
+            url: 'https://graph.instagram.com/me/media?fields=id,media_url,media_type,caption&access_token=IGQVJYMXpkeGJ3aHZAzM1ZAuelpKVEp3UXZA2TE1oV3d4ZA3ZAWdmROdXl3bmE2OFZAHX2Q4TjZA4bC1uRnhiZAHFMX1NUenZADa1pKREhyUzBGVFRjMmVxMGRENDhyYmp4cnpLMHJhRXlROTJqMnQwMmNXaERUOFk5ZAS1pNXVrQS1z',
            	dataType: 'jsonp',
            	type: 'GET',
-           	data: {access_token: token, count: num_photos},
+           	//data: {access_token: token, count: num_photos},
 
             //upload pictures acquired from instagram to specific tags in HTML
             //<a href="https://puffypants.artstation.com/" target="_blank">
            	success: function(data){
+              console.log(data);
               $('div#instalinktest').append('<a href="'+data.data[0].link+'" target="_blank"><i class="fab fa-instagram fa-lg img-overlay-button"></i></a>');
-           		$('div#instafeed0').append('<img class="d-block img-fluid" src="'+data.data[0].images.standard_resolution.url+'">');
-              $('div#instafeed1').append('<img class="d-block img-fluid" img src="'+data.data[1].images.standard_resolution.url+'">');
-              $('div#instafeed2').append('<img class="d-block img-fluid" img src="'+data.data[2].images.standard_resolution.url+'">');
-              $('div#instafeed3').append('<img class="d-block img-fluid" img src="'+data.data[3].images.standard_resolution.url+'">');
-              $('div#instafeed4').append('<img class="d-block img-fluid" img src="'+data.data[4].images.standard_resolution.url+'">');
+           		$('div#instafeed0').append('<img class="d-block img-fluid" src="'+data.data[0].media_url+'">');
+              $('div#instafeed1').append('<img class="d-block img-fluid"  src="'+data.data[1].media_url+'">');
+              $('div#instafeed2').append('<center><video autoplay loop muted><source src="'+data.data[2].media_url+'"></video></center>');
+              //$('div#instafeed2').append('<img class="d-block img-fluid"  src="'+data.data[2].media_url+'">');
+              $('div#instafeed3').append('<img class="d-block img-fluid"  src="'+data.data[3].media_url+'">');
+              $('div#instafeed4').append('<img class="d-block img-fluid"  src="'+data.data[4].media_url+'">');
            	},
 
             //catch and handle errors
@@ -67,7 +70,8 @@ function displaySlideButtonPress(btn, text_section_id){
   console.log(btn.innerHTML);
   console.log(text_section_id);
   var text_section_element = document.getElementById(text_section_id);
-  var parent_element = btn.parentElement;
+  //var parent_element = btn.parentElement;
+  var parent_element = btn;
   var button_HTML_slided = '<i class="fas fa-angle-right fa-lg"></i>';
   var button_HTML_unslided = '<i class="fas fa-angle-left fa-lg"></i>';
 

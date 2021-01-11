@@ -62,7 +62,7 @@
 
 /*styles for display layer images and text*/
 .display_section_img {
-  position:relative;
+  position: relative;
   float:left;
   height: 70vh;
   width: 80vw;
@@ -83,7 +83,7 @@
   height: 70vh;
   width: 0vw;
   opacity:0;
-  padding:15px;
+  padding:10px;
   overflow-y:scroll;
   background-color: #333333;
   background-size: cover;
