@@ -7,9 +7,11 @@ $(document).ready(function() {
                     num_photos = 10;
 
           //ajax to get images from instagram
-           $.ajax({
-             //url: 'https://api.instagram.com/v1/users/self/media/recent/?access_token=3440039563.d56a1b9.358be37d97b942828ee2397726dd3279',
-            url: 'https://graph.instagram.com/me/media?fields=id,media_url,media_type,caption&access_token=IGQVJYMXpkeGJ3aHZAzM1ZAuelpKVEp3UXZA2TE1oV3d4ZA3ZAWdmROdXl3bmE2OFZAHX2Q4TjZA4bC1uRnhiZAHFMX1NUenZADa1pKREhyUzBGVFRjMmVxMGRENDhyYmp4cnpLMHJhRXlROTJqMnQwMmNXaERUOFk5ZAS1pNXVrQS1z',
+          var token = 'IGQVJWSFBLLUl5Q3lLLV82V1BfSG0xNHpSb1UxaGR1UFEtVFBjRXJkdnRoQmxjenJmVXkxWHhSUkR5WWdKbGpuSjgtVVc0ZAVByMk9kVzVwbDBFWkRRX0F4cEp5R1dYd1NncTk1c1pB';
+          
+          $.ajax({
+            //url: 'https://api.instagram.com/v1/users/self/media/recent/?access_token=3440039563.d56a1b9.358be37d97b942828ee2397726dd3279',
+            url: 'https://graph.instagram.com/me/media?fields=id,media_url,media_type,caption&access_token=' + token,
            	dataType: 'jsonp',
            	type: 'GET',
            	//data: {access_token: token, count: num_photos},
@@ -18,20 +20,30 @@ $(document).ready(function() {
             //<a href="https://puffypants.artstation.com/" target="_blank">
            	success: function(data){
               console.log(data);
-              $('div#instalinktest').append('<a href="'+data.data[0].link+'" target="_blank"><i class="fab fa-instagram fa-lg img-overlay-button"></i></a>');
-           		$('div#instafeed0').append('<img class="d-block img-fluid" src="'+data.data[0].media_url+'">');
-              $('div#instafeed1').append('<img class="d-block img-fluid"  src="'+data.data[1].media_url+'">');
-              $('div#instafeed2').append('<center><video autoplay loop muted><source src="'+data.data[2].media_url+'"></video></center>');
+              $('div#instalinktest').append('<a href="'+data.data[0].media_url+'" target="_blank"><i class="fab fa-instagram fa-lg img-overlay-button"></i></a>');
+
+              for(var index = 0; index < 5; index++) {
+                var instafeed_div = 'div#instafeed'+index;
+                if (data.data[index].media_type == 'VIDEO') {
+                  $(instafeed_div).append('<center><video autoplay loop muted><source src="'+data.data[index].media_url+'"></video></center>');
+                }
+                else {
+                  $(instafeed_div).append('<img class="d-block img-fluid" src="'+data.data[index].media_url+'">');
+                }
+              }
+           		//$('div#instafeed0').append('<img class="d-block img-fluid" src="'+data.data[0].media_url+'">');
+              //$('div#instafeed1').append('<img class="d-block img-fluid"  src="'+data.data[1].media_url+'">');
+              //$('div#instafeed2').append('<center><video autoplay loop muted><source src="'+data.data[2].media_url+'"></video></center>');
               //$('div#instafeed2').append('<img class="d-block img-fluid"  src="'+data.data[2].media_url+'">');
-              $('div#instafeed3').append('<img class="d-block img-fluid"  src="'+data.data[3].media_url+'">');
-              $('div#instafeed4').append('<img class="d-block img-fluid"  src="'+data.data[4].media_url+'">');
+              //$('div#instafeed3').append('<img class="d-block img-fluid"  src="'+data.data[3].media_url+'">');
+              //$('div#instafeed4').append('<img class="d-block img-fluid"  src="'+data.data[4].media_url+'">');
            	},
 
             //catch and handle errors
            	error: function(data){
-           		console.log(data);
+           		//console.log(data);
                }
-           });
+          });
   });
 
 /*
@@ -59,6 +71,25 @@ $( function() {
   $(document).on('click', function() {
     console.log(2);
   });
+
+function refreshToken(secret, long_access_token) {
+  var url = "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=" + secret 
+            + "&access_token=" + long_access_token;
+  $.ajax({
+    url: url,
+    dataType: 'jsonp',
+    type: 'GET',
+
+    success: function(data) {
+      console.log(data);
+      return data.access_token;
+    },
+    error: function(data) {
+      console.log(data);
+      return null;
+    }
+  });
+}
 
 /*
  * Function to slide display section to show display text (currently specifically for technical projects section)
