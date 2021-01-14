@@ -10,17 +10,15 @@ $(document).ready(function() {
           var token = 'IGQVJWSFBLLUl5Q3lLLV82V1BfSG0xNHpSb1UxaGR1UFEtVFBjRXJkdnRoQmxjenJmVXkxWHhSUkR5WWdKbGpuSjgtVVc0ZAVByMk9kVzVwbDBFWkRRX0F4cEp5R1dYd1NncTk1c1pB';
           
           $.ajax({
-            //url: 'https://api.instagram.com/v1/users/self/media/recent/?access_token=3440039563.d56a1b9.358be37d97b942828ee2397726dd3279',
             url: 'https://graph.instagram.com/me/media?fields=id,media_url,media_type,caption&access_token=' + token,
            	dataType: 'jsonp',
            	type: 'GET',
-           	//data: {access_token: token, count: num_photos},
 
             //upload pictures acquired from instagram to specific tags in HTML
-            //<a href="https://puffypants.artstation.com/" target="_blank">
            	success: function(data){
               console.log(data);
-              $('div#instalinktest').append('<a href="'+data.data[0].media_url+'" target="_blank"><i class="fab fa-instagram fa-lg img-overlay-button"></i></a>');
+              //$('div#instalinktest').append('<a href="'+data.data[0].media_url+'" target="_blank"><i class="fab fa-instagram fa-lg img-overlay-button"></i></a>');
+              $('div#instalinktest').append('<a href="https://www.instagram.com/puffy_pants/" target="_blank"><i class="fab fa-instagram fa-lg img-overlay-button"></i></a>');
 
               for(var index = 0; index < 5; index++) {
                 var instafeed_div = 'div#instafeed'+index;
@@ -67,10 +65,9 @@ $( function() {
   });
 });
 
-//testing click function; REMOVE LATER
-  $(document).on('click', function() {
-    console.log(2);
-  });
+$("project_card_content").click(function(){
+  $("project_card_content").css("transform", "rotateY(180deg)");
+})
 
 function refreshToken(secret, long_access_token) {
   var url = "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=" + secret 
@@ -89,6 +86,15 @@ function refreshToken(secret, long_access_token) {
       return null;
     }
   });
+}
+
+function flipProjectCard(container) {
+  var content = '.' + container.firstElementChild.classList.item(0);
+  if ( $(content).css("transform") == 'none') {
+    $(content).css("transform", "rotateY(180deg)");
+  } else {
+    $(content).css("transform", "");
+  }
 }
 
 /*
@@ -161,140 +167,3 @@ function githubMouseOut(){
 
 
 
-/////////////////////////////////////////////////////////////////////////////////////
-//additional unused functions from source
-/*
-$( function() {
-  $( ".draggable" ).draggable({
-    //axis:"x" //move along horizontally
-    snap: true //snaps to other draggable objects
-  });
-});
-
-//premade functions
-
-//$( "#accordion" ).accordion();
-
-
-
-var availableTags = [
-	"ActionScript",
-	"AppleScript",
-	"Asp",
-	"BASIC",
-	"C",
-	"C++",
-	"Clojure",
-	"COBOL",
-	"ColdFusion",
-	"Erlang",
-	"Fortran",
-	"Groovy",
-	"Haskell",
-	"Java",
-	"JavaScript",
-	"Lisp",
-	"Perl",
-	"PHP",
-	"Python",
-	"Ruby",
-	"Scala",
-	"Scheme"
-];
-$( "#autocomplete" ).autocomplete({
-	source: availableTags
-});
-
-
-
-$( "#button" ).button();
-$( "#button-icon" ).button({
-	icon: "ui-icon-gear",
-	showLabel: false
-});
-
-
-
-$( "#radioset" ).buttonset();
-
-
-
-$( "#controlgroup" ).controlgroup();
-
-
-
-$( "#tabs" ).tabs();
-
-
-
-$( "#dialog" ).dialog({
-	autoOpen: false,
-	width: 400,
-	buttons: [
-		{
-			text: "Ok",
-			click: function() {
-				$( this ).dialog( "close" );
-			}
-		},
-		{
-			text: "Cancel",
-			click: function() {
-				$( this ).dialog( "close" );
-			}
-		}
-	]
-});
-
-// Link to open the dialog
-$( "#dialog-link" ).click(function( event ) {
-	$( "#dialog" ).dialog( "open" );
-	event.preventDefault();
-});
-
-
-
-$( "#datepicker" ).datepicker({
-	inline: true
-});
-
-
-
-$( "#slider" ).slider({
-	range: true,
-	values: [ 17, 67 ]
-});
-
-
-
-$( "#progressbar" ).progressbar({
-	value: 20
-});
-
-
-
-$( "#spinner" ).spinner();
-
-
-
-$( "#menu" ).menu();
-
-
-
-$( "#tooltip" ).tooltip();
-
-
-
-$( "#selectmenu" ).selectmenu();
-
-
-// Hover states on the static widgets
-$( "#dialog-link, #icons li" ).hover(
-	function() {
-		$( this ).addClass( "ui-state-hover" );
-	},
-	function() {
-		$( this ).removeClass( "ui-state-hover" );
-	}
-);
-*/

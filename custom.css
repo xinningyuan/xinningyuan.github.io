@@ -149,7 +149,7 @@
 }
 
 .title_layer, .title_section{
-  height: 75vh;
+  height: 80vh;
 }
 
 .display_layer, .display_section{
@@ -247,7 +247,6 @@
   -ms-filter: blur(2px);
   filter: blur(2px);
   opacity: 0.8;
-  /* transform: translate(0px, -100px); */
 }
 .bg3 {
   background-image: url('images/StarGoddess.jpg');
@@ -287,7 +286,64 @@
   z-index:2;
 }
 
+.project_card_left, .project_card_right {
+  width: 30vw;
+  height: 30vh;
+  perspective: 800px;
 
+  margin-bottom: 2vh;
+}
+
+.project_card_left {
+  margin-left: 18vw;
+  float: left;
+}
+
+.project_card_right {
+  margin-right: 18vw;
+  float: right;
+}
+
+.card_content_top_left, .card_content_top_right,
+.card_content_bot_left, .card_content_bot_right {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 3px solid white;
+  text-align: center;
+  justify-content: center;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.project_card_front img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.project_card_front, .project_card_back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+  text-align: center;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  backface-visibility: hidden;
+}
+
+.project_card_back {
+  background: #224c64;
+  color: white;
+  overflow-y: auto;
+  text-align: center;
+  transform: rotateY(180deg);
+}
+
+.project_card_text {
+  margin: 8px;
+}
 /* Carousel styles
   Styles for formatting Carousel container*/
 .carousel-container {
@@ -312,9 +368,6 @@
   position: absolute;
   margin:auto;
   top:0; left:0; right:0;
-  /* float: left; */
-  /*top:0;*/
-  /* transform:translateX(50vw); */
   align-items:center;
   background-color:rgba(255,255,255,0);
 
